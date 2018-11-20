@@ -68,8 +68,8 @@ If we pass some of these strings into `sunpy.time.parse_time()`::
 
 Each of the above returns the same `~astropy.time.Time` object ``<Time object: scale='utc' format='isot' value=2007-05-04T21:08:12.000>``.
 
-One of the most common time formats used in unix is the number of seconds since 1979 January 01
-called ``utime``. The parse_time function also accepts this as input, e.g.::
+We also support ``utime``, which is the amount of seconds from `1979-01-01 00:00:00 UTC`.
+Same as Unix time but this starts 9 years later. The parse_time function also accepts this as input, e.g.::
 
     >>> parse_time(894316092.00000000, format='utime')
     <Time object: scale='utc' format='utime' value=894316092.0>
@@ -106,11 +106,6 @@ For example::
     >>> parse_time(np.arange('2007-05-03', '2007-05-04', dtype='datetime64[D]'))  # np.ndarray
     <Time object: scale='utc' format='isot' value=['2007-05-03T00:00:00.000']>
 
-    >>> import astropy.time
-    >>> parse_time(astropy.time.Time('2007-05-04', format='isot'))  # astropy.time.Time
-    <Time object: scale='utc' format='isot' value=2007-05-04T00:00:00.000>
-
-
 `astropy.time.Time` API comparision
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -123,7 +118,7 @@ as you would do with `~astropy.time.Time`. An example::
     >>> parse_time(times, format='isot', scale='tai')
     <Time object: scale='tai' format='isot' value=['1999-01-01T00:00:00.123' '2010-01-01T00:00:00.000']>
 
-Please be aware that all SunPy functions which require time as an input sanitize the input using parse_time.
+Please be aware that all SunPy functions which require time as an input sanitize the input using `~sunpy.time.parse_time`.
 
 2. Time Ranges
 --------------
