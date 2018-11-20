@@ -254,9 +254,9 @@ def parse_time(time_string, *, format=None, **kwargs):
           >>> list(astropy.time.Time.FORMATS)
           ['jd', 'mjd', 'decimalyear', 'unix', 'cxcsec', 'gps', 'plot_date',
           'datetime', 'iso', 'isot', 'yday', 'fits', 'byear', 'jyear', 'byear_str',
-          'jyear_str']
+          'jyear_str', 'utime']
 
-        In addition, we also support 'utime'.
+        Notice that `utime` is now in the list as we register with `astropy.time.Time` as a format.
 
     kwargs : dict
         Additional keyword arguments that can be passed to `astropy.time.Time`
